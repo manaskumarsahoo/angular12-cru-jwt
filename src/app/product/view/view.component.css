@@ -1,0 +1,6 @@
+.inline {
+    display: inline-flex;
+}
+.inline p {
+    margin-left: 10px;
+}

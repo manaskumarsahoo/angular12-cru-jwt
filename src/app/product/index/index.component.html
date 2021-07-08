@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Ariba POC</h1>
+  
+    <a href="#" routerLink="/product/create/" class="btn btn-success">Create New Product</a>
+    
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Details</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productDetails }}</td>
+        <td>{{ product.productType }}</td>
+        <td>{{ product.productPrice }}</td>
+        <td>
+          <a href="#" [routerLink]="['/product/', product.productCode, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/product/', product.productCode, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePost(product.productCode)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>

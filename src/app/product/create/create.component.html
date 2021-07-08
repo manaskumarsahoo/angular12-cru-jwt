@@ -1,0 +1,71 @@
+<div class="container">
+    <h1>Create New Product</h1>
+  
+    <a href="#" routerLink="/product/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="productName">Name:</label>
+            <input 
+                formControlName="productName"
+                id="productName" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.productName.touched && f.productName.invalid" class="alert alert-danger">
+                <div *ngIf="f.productName.errors.required">Name is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="productDetails">Details</label>
+            <textarea 
+                formControlName="productDetails"
+                id="productDetails" 
+                type="text" 
+                class="form-control">
+            </textarea>
+          
+        </div>
+
+        <div class="form-group">
+            <label for="productType">Type</label>
+            <input 
+                formControlName="productType"
+                id="productType" 
+                type="text" 
+                class="form-control">
+            
+            <div *ngIf="f.productType.touched && f.productType.invalid" class="alert alert-danger">
+                <div *ngIf="f.productType.errors.required">Type is required.</div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="productPrice">Price</label>
+            <input 
+                formControlName="productPrice"
+                id="productPrice" 
+                type="text" 
+                class="form-control">
+          
+            <div *ngIf="f.productPrice.touched && f.productPrice.invalid" class="alert alert-danger">
+                <div *ngIf="f.productPrice.errors.required">Price is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productQuantity">Quantity</label>
+            <input 
+                formControlName="productQuantity"
+                id="productQuantity" 
+                type="number" 
+                class="form-control">
+           
+            <div *ngIf="f.productQuantity.touched && f.productQuantity.invalid" class="alert alert-danger">
+                <div *ngIf="f.productQuantity.errors.required">Body is required.</div>
+            </div>
+        </div>
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
